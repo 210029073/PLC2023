@@ -13,6 +13,8 @@
                 b)))
     )
 )
+; this is how it should look like:
+;(1 + (a + b) * (a - 1 / b))
 
 ; define function get-number
 ; in Java it would be: static float getNumber(String varName){ ...; return ...; }
