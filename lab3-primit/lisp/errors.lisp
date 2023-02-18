@@ -1,6 +1,12 @@
-(defvar errors-results 
-    '((fp-rounding . abitdifferent) (fp-overflow . infinity) (fp-underflow . zero) (int-overflow . verydifferent)))
+;(defvar errors-results 
+;    '((fp-rounding . abitdifferent) (fp-overflow . infinity) (fp-underflow . zero) (int-overflow . verydifferent)))
     ; a list of pairs
+
+(defvar errors-results
+    '(
+        (abitdifferent . fp-rounding) (infinity . fp-overflow) (zero . fp-underflow) (verydifferent . int-overflow)
+    )
+)
 
 (defvar errors
     (mapcar 'car errors-results))

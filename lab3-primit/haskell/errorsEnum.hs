@@ -1,5 +1,6 @@
 module Main where
 
+-- import Main (Result(VeryDifferent), Error (FP_Overflow, FP_Underflow, Int_Overflow))
 import System.IO (hSetBuffering, stdout, BufferMode(..))
 
 main =
@@ -16,24 +17,42 @@ initialiseIO =
 
 data Error = FP_Rounding | FP_Overflow | FP_Underflow | Int_Overflow
     deriving (Show, -- default formatting
-              Read, -- default parsing
-              Eq,   -- default equality testing
-              Bounded, -- default minBound and maxBound
-              Enum) -- default sequencing (needed for .. ranges)
+            Read, -- default parsing
+            Eq,   -- default equality testing
+            Bounded, -- default minBound and maxBound
+            Enum) -- default sequencing (needed for .. ranges)
 data Result = Zero | Infinity | ABitDifferent | VeryDifferent
     deriving (Show, -- default formatting
-              Read, -- default parsing
-              Eq,   -- default equality testing
-              Bounded, -- default minBound and maxBound
-              Enum) -- default sequencing (needed for .. ranges)
+            Read, -- default parsing
+            Eq,   -- default equality testing
+            Bounded, -- default minBound and maxBound
+            Enum) -- default sequencing (needed for .. ranges)
 
-allErrors :: [Error] -- ie it is a list of PL elements
+-- data Error = Zero | Infinity | ABitDifferent | VeryDifferent
+--     deriving (
+--         Show,
+--         Read,
+--         Eq,
+--         Bounded,
+--         Enum
+--     )
+
+-- data Result = FP_Rounding | FP_Overflow | FP_Underflow | Int_Overflow
+--     deriving (
+--         Read,
+--         Show,
+--         Eq,
+--         Bounded,
+--         Enum
+--     )
+
+allErrors :: [Result] -- ie it is a list of PL elements
 allErrors = [minBound .. maxBound]
 
-error2Result FP_Rounding = ABitDifferent
-error2Result FP_Overflow = Infinity
-error2Result FP_Underflow = Zero
-error2Result Int_Overflow = VeryDifferent
+error2Result ABitDifferent = FP_Rounding
+error2Result Infinity = FP_Overflow
+error2Result Zero = FP_Underflow
+error2Result VeryDifferent = Int_Overflow
 
 -- The code below should not be changed and does not need to be fully understood.
 
