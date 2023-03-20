@@ -15,5 +15,3 @@
 (let ((ht (get-house-category)))
     (write-string "Your input: ")
     (write ht))
-
-    ;this should be removed after the next commit
