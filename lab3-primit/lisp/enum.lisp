@@ -12,6 +12,6 @@
 (defun house-categoryp (a)
     (member a '(detached semidetached terraced)))
 
-(let git((ht (get-house-category)))
+(let ((ht (get-house-category)))
     (write-string "Your input: ")
     (write ht))
