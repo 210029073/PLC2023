@@ -84,13 +84,5 @@ public class ErrorsBool
         
         Error e = getEnumElement("error", Error.class);
         System.out.println(e + " results in: " + error2Result(e));
-
-        int j = 0;
-        System.out.println("Input = " + j + " output = " + ((j > 0) && true || (j < 0) && (j != 0)));
     }
-
-    //fix
-    // int j = 0;
-    // System.out.println("Input = " + j + " output = " + ((j > 0) && true || (j < 0) && !(true)))
-    // printf("Input = %d, output = %d.\n", j, (j>0)*j + (j<0)*(-j));
 }
